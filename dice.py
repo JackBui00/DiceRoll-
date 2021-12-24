@@ -3,8 +3,10 @@ import re
 
 
 #Take in User Input 
-#userInput= input("Input a dice\n")
-userInput= "1d3+1d4 +1d3+ 33 -1d3 +1d3-  5d5 -5 - 10 + 25"
+userInput= input("Input a dice\n")
+
+#Debug User Input
+#userInput= "1d3+1d4 +1d3+ 33 -1d3 +1d3-  5d5 -5 - 10 + 25"
 
 
 #Remove Spaceing in User Input 
