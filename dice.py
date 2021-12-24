@@ -32,7 +32,7 @@ print("fiter negative attachment match")
 print(positiveDiceMatch)
 
 #Positive Integer Values from filter
-PositiveNumberMatch= []
+positiveNumberMatch= []
 print(positiveUserInputArray)
 
 #Array for Dice Subtraction
@@ -47,7 +47,7 @@ for i in range(0,len(negativeNumberMatch)):
             subtractionTotal.append(splitNegativeNumberMatch[i])
 
     if splitNegativeNumberMatch[0].isdigit():
-        PositiveNumberMatch.append(splitNegativeNumberMatch[0])
+        positiveNumberMatch.append(splitNegativeNumberMatch[0])
         for i in range(1, len(splitNegativeNumberMatch)):
             subtractionTotal.append(splitNegativeNumberMatch[i])
 
@@ -72,8 +72,18 @@ for items in subtractionTotal:
 for items in positiveUserInputArray:
     for subitem in items.split():
         if(subitem.isdigit()):
-            PositiveNumberMatch.append(subitem)
-
+            positiveNumberMatch.append(subitem)
+print("split negativenumbermatch")
 print(splitNegativeNumberMatch)
 print(positiveDiceMatch)
 print(finalFilterNegativeValue)
+
+#Convert Each Positive String Integer into a Integer in the Array 
+for i in range (0, len(positiveNumberMatch)):
+    positiveNumberMatch[i] = int(positiveNumberMatch[i])
+
+
+#Convert Each Negative String Integer into a Integer in the Array 
+for i in range (0, len(finalFilterNegativeValue)):
+    finalFilterNegativeValue[i] = int(finalFilterNegativeValue[i])
+
