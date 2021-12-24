@@ -91,6 +91,7 @@ for i in range (0, len(finalFilterNegativeValue)):
 positiveDiceValue = []
 negativeDiceValue = []
 
+#Compile Together Values of Positive Dice Rolls
 print("Positive Dice Rolls")
 for x in range(len(positiveDiceMatch)):
     tempPositiveDice = re.split('d', positiveDiceMatch[x])
@@ -103,6 +104,8 @@ for x in range(len(positiveDiceMatch)):
         positiveDiceRollValue = random.randint(positiveMinimumDiceValue, positiveDiceMaxValue)
         i += 1
         positiveDiceValue.append(positiveDiceRollValue)
+
+#Compile Together Values of Negative Dice Rolls
 print("Negative Dice Rolls")
 for x in range(len(negativeDiceMatch)):
     tempNegativeDice = re.split('d', negativeDiceMatch[x])
@@ -116,12 +119,15 @@ for x in range(len(negativeDiceMatch)):
         i += 1
         negativeDiceValue.append(negativeDiceRollValue)
 
+#Take Sum of Arrays of Integers
 additionSum = sum(positiveNumberMatch)
 negativeSum = sum(finalFilterNegativeValue)
 
+#Take Sum of Array of Dice Roll Integers
 positiveDiceValueSum = sum(positiveDiceValue)
 negativeDiceValueSum = sum(negativeDiceValue)
 
+#calculate the total value of all rolls and integers
 totalValueOfAll = additionSum - negativeSum + positiveDiceValueSum - negativeDiceValueSum
 
 print(additionSum)
