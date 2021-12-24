@@ -1,4 +1,4 @@
-import random 
+import random
 import re
 
 
@@ -86,4 +86,49 @@ for i in range (0, len(positiveNumberMatch)):
 #Convert Each Negative String Integer into a Integer in the Array 
 for i in range (0, len(finalFilterNegativeValue)):
     finalFilterNegativeValue[i] = int(finalFilterNegativeValue[i])
+
+#Create Positive and Negative Dice
+positiveDiceValue = []
+negativeDiceValue = []
+
+print("Positive Dice Rolls")
+for x in range(len(positiveDiceMatch)):
+    tempPositiveDice = re.split('d', positiveDiceMatch[x])
+    print(tempPositiveDice)
+    positiveDiceAmmount = int(tempPositiveDice[0])
+    positiveDiceMaxValue = int(tempPositiveDice[1])
+    positiveMinimumDiceValue = 1; 
+    i = 0; 
+    while i < positiveDiceAmmount:
+        positiveDiceRollValue = random.randint(positiveMinimumDiceValue, positiveDiceMaxValue)
+        i += 1
+        positiveDiceValue.append(positiveDiceRollValue)
+print("Negative Dice Rolls")
+for x in range(len(negativeDiceMatch)):
+    tempNegativeDice = re.split('d', negativeDiceMatch[x])
+    print(tempNegativeDice)
+    negativeDiceAmmount = int(tempNegativeDice[0])
+    negativeDiceMaxValue = int(tempNegativeDice[1])
+    negativeMinimumDiceValue = 1; 
+    i = 0; 
+    while i < negativeDiceAmmount:
+        negativeDiceRollValue = random.randint(negativeMinimumDiceValue, negativeDiceMaxValue)
+        i += 1
+        negativeDiceValue.append(negativeDiceRollValue)
+
+additionSum = sum(positiveNumberMatch)
+negativeSum = sum(finalFilterNegativeValue)
+
+positiveDiceValueSum = sum(positiveDiceValue)
+negativeDiceValueSum = sum(negativeDiceValue)
+
+totalValueOfAll = additionSum - negativeSum + positiveDiceValueSum - negativeDiceValueSum
+
+print(additionSum)
+print(negativeSum)
+print(totalValueOfAll)
+    
+        
+
+
 
