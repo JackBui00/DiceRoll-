@@ -9,6 +9,10 @@ userInput= input("Input a dice\n")
 noSpaceInput = userInput.replace(' ','')
 print(noSpaceInput)
 
+#Create Array with Positive User Input Only
+positiveUserInputArray = re.split('[+]', noSpaceInput)
+print(positiveUserInputArray)
+
 
 
 
