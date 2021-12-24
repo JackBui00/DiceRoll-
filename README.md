@@ -3,3 +3,4 @@ You can message me if you want to see how I added it to a discord bot.
 
 
 Sample input would be "1d3 + 1d3+3d3+5d5 -32 -3d3 + 3d2"
+In my case for the discord bot, it's "$roll 1d3 + 1d3+3d3+5d5 -32 -3d3 + 3d2"
