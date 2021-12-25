@@ -3,10 +3,10 @@ import re
 
 
 #Take in User Input 
-userInput= input("Input a dice\n")
+#userInput= input("Input a dice\n")
 
 #Debug User Input
-#userInput= "1d3+1d4 +1d3+ 33 -1d3 +1d3-  5d5 -5 - 10 + 25"
+userInput= "3d3-3d3-3d3+15-23+13d13"
 
 
 #Remove Spaceing in User Input 
@@ -15,7 +15,7 @@ print(noSpaceInput)
 
 #Create Array with Positive User Input Only
 positiveUserInputArray = re.split('[+]', noSpaceInput)
-print(positiveUserInputArray)
+print("PositiveUserInputArray: ", positiveUserInputArray)
 
 #Creation of Negative User Input Array 
 Negative = '-'
@@ -23,24 +23,22 @@ negativeNumberMatch = []
 splitNegativeNumberMatch= []
 
 negativeNumberMatch = list(filter(lambda x: Negative in x, positiveUserInputArray))
-print("negative")
-print(negativeNumberMatch)
+print("negative: ", negativeNumberMatch)
 
 positiveUserInputArray = [x for x in positiveUserInputArray if "-" not in x]
 
 #Filter Negative Attachment Match, random characters
 positiveDiceMatch = [s for s in positiveUserInputArray if s.__contains__("d")]
-print("fiter negative attachment match")
-print(positiveDiceMatch)
+print("fiter negative attachment match: ",positiveDiceMatch)
 
 #Positive Integer Values from filter
 positiveNumberMatch= []
-print(positiveUserInputArray)
+print("positive number match", positiveUserInputArray)
 
 #Array for Dice Subtraction
 subtractionTotal = []
 
-#Split Apart Array Item 0 to check for dice stuck together
+#Split Apart Array Item 0 to check for dice or integer stuck together
 for i in range(0,len(negativeNumberMatch)):
     splitNegativeNumberMatch = negativeNumberMatch[i].split('-')
     if "d" in str(splitNegativeNumberMatch[0]):
@@ -53,11 +51,9 @@ for i in range(0,len(negativeNumberMatch)):
         for i in range(1, len(splitNegativeNumberMatch)):
             subtractionTotal.append(splitNegativeNumberMatch[i])
 
-print("positive dice")
-print(positiveDiceMatch)
+print("positive dice: ",positiveDiceMatch)
 
-print("negative subtraction array")
-print(subtractionTotal)
+print("negative subtraction array: ",subtractionTotal)
 
 #integers to subtract 
 finalFilterNegativeValue = []
@@ -75,10 +71,10 @@ for items in positiveUserInputArray:
     for subitem in items.split():
         if(subitem.isdigit()):
             positiveNumberMatch.append(subitem)
-print("split negativenumbermatch")
-print(splitNegativeNumberMatch)
-print(positiveDiceMatch)
-print(finalFilterNegativeValue)
+
+print("split negativenumbermatch: ",splitNegativeNumberMatch)
+print("current positive dice match: ", positiveDiceMatch)
+print("current negative value match", finalFilterNegativeValue)
 
 #Convert Each Positive String Integer into a Integer in the Array 
 for i in range (0, len(positiveNumberMatch)):
@@ -132,9 +128,10 @@ negativeDiceValueSum = sum(negativeDiceValue)
 #calculate the total value of all rolls and integers
 totalValueOfAll = additionSum - negativeSum + positiveDiceValueSum - negativeDiceValueSum
 
-print(additionSum)
-print(negativeSum)
-print(totalValueOfAll)
+
+print("additional sum: ",additionSum)
+print("negative sum: ", negativeSum)
+print("total value: ", totalValueOfAll)
     
         
 
